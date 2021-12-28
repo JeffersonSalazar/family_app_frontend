@@ -3,10 +3,10 @@ let express = require('express'),
     port = process.env.PORT || 8080,
     path = require('path');
 
-app.use(express.static(__dirname + '/dist/frontend')); 
+app.use(express.static(path.join(__dirname + '/src'))); 
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/dist/frontend/index.html'))
+    res.sendFile(path.join(__dirname + '/src/index.html'))
 })
 
 app.listen(port, (err) => {
