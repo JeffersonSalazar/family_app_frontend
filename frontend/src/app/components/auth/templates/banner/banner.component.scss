@@ -1,0 +1,12 @@
+.box_img {
+    
+    img {
+        width: 100%;
+        object-fit: cover;
+        
+        @media (max-width:999px) { // <------
+            min-height: 400px;
+            margin-bottom: 18px;
+        };
+    };
+}

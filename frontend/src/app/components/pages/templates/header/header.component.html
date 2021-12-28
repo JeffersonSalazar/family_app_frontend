@@ -1,0 +1,73 @@
+<!-- box_header: general container of this section -->
+<div class="box_header">
+
+    <!-- box_logo: image container -->
+    <div class="box_logo">
+        <img src="assets/img/prize-1.svg" alt="logo">
+    </div>
+
+    <div class="box_logout">
+        <div class="box_config">
+            <section class="box_nitname">
+                <h3>Welcome {{ nitName.name }}</h3>
+
+                <mat-icon title="configuraciones" (click)="showConfig = !showConfig">settings</mat-icon>
+            </section>
+
+            <ul *ngIf="showConfig">
+                <li>
+                    <a [routerLink]="['/pages/change-password']">
+                        <mat-icon>vpn_key</mat-icon>Cambiar contraseña
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <mat-icon>vpn_key</mat-icon>Cambiar contraseña
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <mat-icon>vpn_key</mat-icon>Cambiar contraseña
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <button class="box_btnicon" mat-icon-button (click)="showMenu($event)">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+</div>
+
+<nav class="box_nav" [ngClass]="{ 'hideMenu': hide, 'showMenu': show }">
+    <ul>
+        <li>
+            <a [routerLink]="['/pages/home']" title="Inicio">
+                <mat-icon routerLinkActive="active">home</mat-icon>Inicio
+            </a>
+        </li>
+        <li>
+            <a [routerLink]="['/pages/videos']" title="Videos">
+                <mat-icon routerLinkActive="active">airplay</mat-icon>Videos
+            </a>
+        </li>
+        <li>
+            <a [routerLink]="['/pages/members']" title="Miembros">
+                <mat-icon routerLinkActive="active">group</mat-icon>Miembros
+            </a>
+        </li>
+        <li>
+            <a [routerLink]="['/pages/notifications']" title="Notificaciones">
+                <mat-icon routerLinkActive="active">cloud_queue</mat-icon>Notificaciones
+            </a>
+        </li>
+        <li>
+            <a (click)="logout($event)" title="Salida">
+                <mat-icon>exit_to_app</mat-icon>Salida
+            </a>
+        </li>
+        <!-- <li>
+            <h3>{{ nitName.name }} {{ nitName.lastName }}</h3>
+        </li> -->
+    </ul>
+</nav>

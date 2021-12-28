@@ -1,0 +1,51 @@
+<!-- box_flex: container to implement flexbox -->
+<div class="box_flex">
+
+    <!-- box_banner: container for bannerComponent -->
+    <div class="box_banner">
+        <app-banner></app-banner>
+    </div>
+
+    <!-- box_form: container for form (#1) -->
+    <div class="box_form">
+        <form [formGroup]="signinForm" autocomplete="off" novalidate (ngSubmit)="signin($event)">
+
+            <!-- show async validations -->
+            <div class="box_error" *ngIf="asyncValidation">
+                Email y/o contraseña incorrectas !
+            </div>
+
+            <h3>Iniciar sesion</h3> <!-- form title -->
+
+            <!-- box_input: container for inputs (#1) -->
+            <div class="box_input">
+                <input type="email" name="email" placeholder="Ingrese su correo" formControlName="email" />
+            </div>
+
+            <!-- (#2) -->
+            <div class="box_input">
+                <input type="password" name="password" placeholder="Ingrese su constraseña" formControlName="password"
+                    [type]="showPass ? 'string' : 'password'" />
+
+                <mat-icon (click)="showPass = !showPass" *ngIf="errorPass.value.length > 2">
+                    {{ showPass ? 'visibility_off' : 'visibility' }}
+                </mat-icon>
+            </div>
+
+            <!-- box_btn: container for buttons -->
+            <div class="box_btn">
+                <button type="submit">Signin</button>
+            </div>
+
+            <div class="box_account">
+                <a href="#">¿Olvidate tu cuenta?</a>
+            </div>
+
+            <!-- redirect link to signup -->
+            <h2>No tienes una cuenta? <a [routerLink]="['/auth/signup']">Ingresa aqui</a></h2>
+
+            <!-- spinnerComponent implementation -->
+            <app-spinner></app-spinner>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,200 @@
+/* 
+    import variables file path
+    frontend/src/app/sass/_variables.scss
+*/
+@import "_variables.scss";
+
+* { // reset general styles
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+};
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+// implementation of flexbox in box_form and box_banner
+.box_flex {
+    display: flex; // implemented here to use the propiety order
+    
+    @media (max-width:999px) { // <------
+        flex-direction: column;
+    };
+
+    @media (min-width:1000px) { // ------>
+        justify-content: center;
+        align-items: center;
+    }; 
+
+    // box_form: form container
+    .box_form {
+        
+        @media (max-width:399px) { // <------
+            padding: 0 15px;
+        };
+
+        @media (min-width:400px) { // ------>
+            padding: 0 25px;
+        };
+
+        /*
+            In the next code we define styles that 
+            affect the width of box_form
+        */
+
+        @media (min-width:1000px) { // ------>
+            padding: 0 35px;
+            width: 40%;
+        };
+
+        @media (min-width:1200px) { // ------>
+            width: 35%;
+        };
+
+        // tag form
+        form {
+            
+            // form title 
+            h3 {
+                color: $color_b;
+                font-size: 2.5rem;
+                margin-bottom: 24px;
+                
+                @media (max-width:329px) { // <------
+                    font-size: 2.2rem;
+                };
+            };
+
+            // box_input: inputs container
+            .box_input {
+                position: relative;
+
+                mat-icon {
+                    color: $color_b;
+                    position: absolute;
+                    bottom: calc(100% - 55%);
+                    right: calc(100% - 97%);
+                    cursor: pointer;
+                }
+            };
+
+            // box_btn: button container
+
+            .box_account {
+                text-align: center;
+                margin: 10px 0;
+
+                a {
+                    text-decoration: none;
+                    color: $background_a;
+                    letter-spacing: 1px;
+                };
+            };
+
+            // redirect link
+            h2 {
+                text-align: center;
+                color: $color_b;
+                font-size: 1.2rem;
+                padding: 12px 0 22px;
+
+                @media (max-width:307px) { // <------
+                    font-size: 1.1rem;
+                };
+
+                a {
+                    color: $background_a;
+                };
+            };
+        };
+
+        .box_conditions {
+            color: $color_b;
+            font-size: 0.8rem;
+            line-height: 1.5rem;
+
+            a {
+                color: $background_a;
+            };
+        };
+    };
+
+    // box_banner: banner container
+    .box_banner {
+
+        /*
+            In the next code we define styles that 
+            affect the width of box_banner
+        */
+
+        @media (min-width:1000px) { // ------>
+            width: 60%;
+        };
+
+        @media (min-width:1200px) { // ------>
+            width: 65%;
+        };
+    };
+};
+
+// box_error: errors container
+.box_error {
+    width: 100%;
+    background-color: #eb5d5d;
+    color: #fff;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    letter-spacing: 1.2px;
+    padding: 12px;
+    margin-bottom: 18px;
+    border-radius: 5px;
+}
+
+input {
+    outline: none;
+    border: 1px solid $border_a;
+    color: $color_b;
+    font-size: 1.3rem;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    padding-left: 12px;
+    border-radius: 3px;
+    transition: all .2s ease-in-out;
+
+    &:focus {
+        border: 1px solid $shadow_b;
+        box-shadow: 0 3px 5px 0 $shadow_a;
+    };
+    
+    &::placeholder {
+        color: $color_c;
+    };
+};
+
+.box_btn {
+    text-align: center;
+
+    button {
+        outline: none;
+        border: none;
+        background-color: $hover_a;
+        color: $color_a;
+        font-size: 1.3rem;
+        letter-spacing: 1.2px;
+        width: 100%;
+        height: 44px;
+        margin: 12px 0 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+        
+        &:hover {
+            background-color: $background_a;
+            box-shadow: 0 3px 5px 0 $shadow_b;
+        }
+    };
+};

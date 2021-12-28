@@ -1,0 +1,16 @@
+.box_home {
+
+    @media (min-width:1000px) { // ------>
+        display: flex;
+
+        app-news {
+            width: 30%;
+            border-right: 1px solid#EFF3F4;
+            // background-color: midnightblue;
+        }
+
+        app-posts {
+            width: 70%;
+        }
+    };
+}

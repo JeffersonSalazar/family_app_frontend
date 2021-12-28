@@ -1,0 +1,114 @@
+.box_files {
+    width: 720px;
+    margin: 0 auto;
+    padding: 25px 80px;
+    border: 1px solid #EFF3F4;
+
+    form {
+    
+        .box_input {
+
+            &:nth-child(1) {
+                border-bottom: 1px solid #EFF3F4;
+            }
+
+            label {
+
+                mat-icon {
+                    margin-right: 12px;
+                    cursor: pointer;
+                    
+                    &:hover {
+                        background-color: #EFF3F4;
+                        // padding: 20px;
+                        border-radius: 50%;
+                    }
+                }
+            }
+
+            input[type = file] {
+                display: none;
+                visibility: none;
+            };
+
+            input[type = text] {
+                outline: none;
+                border: none;
+                border-bottom: 1px solid #EFF3F4;
+                font-size: 1.4rem;
+                width: 100%;
+                padding: 16px 0;
+                margin-top: 20px;
+            };
+        };
+
+        .box_btn {
+            text-align: center;
+
+            button {
+                outline: none;
+                border: none;
+                padding: 12px 80px;
+                background-color: dodgerblue;
+                color: white;
+                font-size: 1.1rem;
+                border-radius: 5px;
+                margin-top: 20px;
+                cursor: pointer;
+            }
+        }
+
+    }
+}
+
+.box_posts {
+    width: 720px;
+    margin: 0 auto;
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+
+    &:hover {
+        background-color: #F7F9F9;
+    }
+
+    .box_data {
+
+        h4 {
+            padding: 16px 0;
+            font-size: 1.6rem;
+        }
+
+        p {
+            padding: 16px 0;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        img {
+            width: 100%;
+            height: 420px;
+            // object-fit: cover;
+        }
+    };
+
+    .box_media {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 50px;
+
+        .icon_one {
+
+            mat-icon {
+                margin-right: 16px;
+            }
+        }
+
+        .icon_two {
+
+            mat-icon {
+                margin-left: 12px;
+            }
+        }
+    }
+}

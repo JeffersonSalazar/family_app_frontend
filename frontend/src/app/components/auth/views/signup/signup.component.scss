@@ -1,0 +1,15 @@
+/*
+    the main styles of this component in 
+    frontend/src/styles.scss
+*/
+
+// general container
+.box_flex {
+
+    .box_form { // form container
+
+        @media (max-width:999px) { // <------
+            order: 1;
+        };
+    };
+}

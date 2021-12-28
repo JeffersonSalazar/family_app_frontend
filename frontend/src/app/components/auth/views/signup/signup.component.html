@@ -1,0 +1,91 @@
+<!-- box_flex: container to implement flexbox -->
+<div class="box_flex">
+
+    <!-- box_form: container for form (#1) -->
+    <div class="box_form">
+        <form [formGroup]="signupForm" autocomplete="off" novalidate (ngSubmit)="signup($event)">
+
+            <!-- show async validations -->
+            <div class="box_error" *ngIf="asyncValidation">
+                El email ingresado ya existe !!!
+            </div>
+
+            <h3>Crear cuenta</h3> <!-- form title -->
+
+            <!-- box_input: container for inputs (#1) -->
+            <div class="box_input">
+                <input type="text" name="name" placeholder="Ingrese su nombre" formControlName="name">
+
+                <!-- box_error: container to show sync validations (#1) -->
+                <div class="box_error" *ngIf="errorName.invalid && errorName.touched">
+                    <p *ngIf="errorName.errors.required">Este campo es requerido.</p>
+
+                    <ul *ngIf="errorName.errors.pattern">
+                        <li>Ingrese entre 3/20 caracteres.</li>
+                        <li>No ingrese numeros ni simbolos.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- (#2) -->
+            <div class="box_input">
+                <input type="email" name="email" placeholder="Ingrese su correo" formControlName="email">
+
+                <!-- (#2) -->
+                <div class="box_error" *ngIf="errorEmail.invalid && errorEmail.touched">
+                    <p *ngIf="errorEmail.errors.required">Este campo es requerido.</p>
+
+                    <ul *ngIf="errorEmail.errors.pattern">
+                        <li>El email ingresado es invalido.</li>
+                        <li>Example de email: your_name10@example.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- (#3) -->
+            <div class="box_input">
+                <input type="password" name="password" placeholder="Ingrese su constraseña" formControlName="password"
+                    [type]="showPass ? 'string' : 'password'" />
+
+                <mat-icon (click)="showPass = !showPass" *ngIf="errorPass.value.length > 2">
+                    {{ showPass ? 'visibility_off' : 'visibility'}}
+                </mat-icon>
+
+                <!-- (#3) -->
+                <div class="box_error" *ngIf="errorPass.invalid && errorPass.touched">
+                    <p *ngIf="errorPass.errors.required">Este campo es requerido.</p>
+
+                    <ul *ngIf="errorPass.errors.pattern">
+                        <li>Ingrese entre 8/16 caracteres.</li>
+                        <li>Minimo 1 mayuscula y 1 minuscula.</li>
+                        <li>Minimo 1 numero.</li>
+                        <li>No ingrese espacios en este campo.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- box_btn: container for buttons -->
+            <div class="box_btn">
+                <button type="submit">Signup</button>
+            </div>
+
+            <!-- redirect link to signin -->
+            <h2>Tienes una cuenta? <a [routerLink]="['/auth/signin']">Ingresa aqui</a></h2>
+
+            <!-- spinnerComponent implementation -->
+            <app-spinner></app-spinner>
+        </form>
+
+        <p class="box_conditions">
+            Al hacer clic en "Crear cuenta", aceptas nuestras
+            <a href="#">Condiciones, Política de datos y Política de cookies</a>.
+            Es posible que te enviemos notificaciones por SMS, que puedes desactivar
+            cuando quieras.
+        </p>
+    </div>
+
+    <!-- box_banner: container for bannerComponent -->
+    <div class="box_banner">
+        <app-banner></app-banner>
+    </div>
+</div>

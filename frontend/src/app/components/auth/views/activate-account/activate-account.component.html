@@ -1,0 +1,28 @@
+<div class="box_flex">
+    <section class="box_form">
+        <!-- show async validations -->
+        <div class="box_error" *ngIf="asyncValidation">
+            por favor ingrese un codigo, si ya lo hizo puede que este no sea valido
+            o ya haya expirado. para solucion del problema genere un nuevo CODIGO.
+        </div>
+
+        <h3>Hi {{ nitname.name }} Thanks for Joining</h3>
+
+        <p>
+            we have sent an email to
+            <strong>{{ nitname.email }}</strong>
+            Please confirm your email address to continue
+        </p>
+
+        <form [formGroup]="activateForm" novalidate autocomplete="off" (ngSubmit)="activateAccount($event)">
+            <div class="box_input">
+                <input type="text" name="code" placeholder="Enter code" formControlName="token">
+            </div>
+
+            <div class="box_btn">
+                <button type="submit">Confirm Acoount</button>
+                <button>Generate new code</button>
+            </div>
+        </form>
+    </section>
+</div>
