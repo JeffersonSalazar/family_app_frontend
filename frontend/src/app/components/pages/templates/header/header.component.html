@@ -9,12 +9,13 @@
     <div class="box_logout">
         <div class="box_config">
             <section class="box_nitname">
-                <h3>Welcome {{ nitName.name }}</h3>
+                <!-- <h3>Welcome {{ nitName.name }}</h3> -->
+                <h3>Welcome</h3>
 
-                <mat-icon title="configuraciones" (click)="showConfig = !showConfig">settings</mat-icon>
+                <!-- <mat-icon title="configuraciones" (click)="showConfig = !showConfig">settings</mat-icon> -->
             </section>
 
-            <ul *ngIf="showConfig">
+            <!-- <ul *ngIf="showConfig">
                 <li>
                     <a [routerLink]="['/pages/change-password']">
                         <mat-icon>vpn_key</mat-icon>Cambiar contraseña
@@ -30,7 +31,7 @@
                         <mat-icon>vpn_key</mat-icon>Cambiar contraseña
                     </a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
 
         <button class="box_btnicon" mat-icon-button (click)="showMenu($event)">

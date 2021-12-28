@@ -23,15 +23,11 @@ import { VideosModule } from './views/videos/videos.module';
 import { MembersModule } from './views/members/members.module';
 import { NotificationsModule } from './views/notifications/notifications.module';
 
-//
-import { ChangePassComponent } from './views/change-pass/change-pass.component';
-
 @NgModule({
   declarations: [
     PagesComponent,
     HeaderComponent,
-    FooterComponent,
-    ChangePassComponent
+    FooterComponent
   ],
 
   imports: [
