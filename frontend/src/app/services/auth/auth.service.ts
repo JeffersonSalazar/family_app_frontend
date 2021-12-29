@@ -14,13 +14,15 @@ import { Observable } from 'rxjs';
 import { AuthInterface } from "../../models/interfaces/auth/auth";
 import { ChangePasswordInterface } from '../../models/interfaces/auth/changePassword';
 
+import { environment } from "../../../environments/environment";
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
 
-  private apiUrl: string = "http://localhost:3000"; // server url
+  private apiUrl: string = environment.baseUrl; // server url
 
   // injection in the constructor
   constructor(private _http: HttpClient) { }
