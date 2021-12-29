@@ -3,11 +3,10 @@ let express = require('express'),
     port = process.env.PORT || 3000,
     path = require('path');
 
-// app.use(express.static(path.join(__dirname + '/src/index.html'))); 
-app.use(express.static('./dist/frontend')); 
+app.use(express.static(path.join(__dirname + '/dist/frontend'))); 
 
-app.get('/*', (req, res) => {
-    res.sendFile('index.html', { root: 'dist/angular-heroku'})
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname + '/dist/angular-heroku'))
 })
 
 app.listen(port, (err) => {
